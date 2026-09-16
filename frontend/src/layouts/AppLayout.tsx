@@ -1,4 +1,4 @@
-import { ArrowDownToLine, Box, History, Layers, LayoutGrid, List, Settings, User } from "lucide-react";
+import { ArrowDownToLine, Box, History, Layers, LayoutGrid, List, Search, Settings, User } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { LinkButton } from "../components/LinkButton";
 
@@ -75,18 +75,25 @@ export function AppLayout() {
                             <div className="size-8 flex items-center justify-center rounded-full bg-gray-500">
                                 <User stroke-width={3} color="white" height={16} width={16}/>
                             </div>
-                        <div className="flex flex-col leading-none gap-1">
-                            <span className="text-[15px] font-bold tracking-[-0.08px] text-white text-left">Ubuntu</span>
-                            <span className="text-[10px] tracking-[-0.12px] text-left">@localhost</span>
+                            <div className="flex flex-col leading-none gap-1">
+                                <span className="text-[15px] font-bold tracking-[-0.08px] text-white text-left">Ubuntu</span>
+                                <span className="text-[10px] tracking-[-0.12px] text-left">@localhost</span>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </aside>
 
-            <aside className="flex-3">
-                <div>
-                    {location.pathname}
+            <aside className="flex-3 flex flex-col">
+                <div className="w-full h-12 border-b border-white/10 flex items-center">
+                    <h2>
+                        {location.pathname}
+                    </h2>
+                    
+                    <div className="flex items-center absolute">
+                        <Search width={14} className="relative -right-6"/>
+                        <input type="text" className="border h-9 w-full border-white/10 rounded-md pl-8 px-2.5 py-1.5 outline-none text-sm" placeholder="Search packages..."/>
+                    </div>
                 </div>
 
                 <main>
