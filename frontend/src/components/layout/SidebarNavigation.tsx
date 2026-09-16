@@ -13,17 +13,18 @@ const navigationItems = [
 export default function SidebarNavigation() {
     return (
         <nav className="p-2.5 flex flex-1 flex-col gap-1">
-            {navigationItems.map(item => {
-                return (
-                    <NavLink to={item.to}>
+            {navigationItems.map(item => (
+                    <NavLink 
+                        to={item.to}
+                        key={`${item.name}`}
+                    >
                         <LinkButton 
-                            key={`${item.name}${item.to}`}
                             name={item.name}
                             icon={item.icon}
                         />
                     </NavLink>
                 )
-            })}
+            )}
         </nav>
     )
 }
