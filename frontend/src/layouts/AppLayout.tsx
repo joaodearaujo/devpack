@@ -1,106 +1,42 @@
-import { ArrowDownToLine, Box, History, Layers, LayoutGrid, List, Search, Settings, User } from "lucide-react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { LinkButton } from "../components/LinkButton";
+import { Settings } from "lucide-react";
+import { NavLink, Outlet } from "react-router-dom";
+
+import { LinkButton } from "../components/button/LinkButton";
+import Logo from "../components/layout/Logo";
+import SidebarNavigation from "../components/layout/SidebarNavigation";
+import UserProfile from "../components/layout/UserProfile";
+import ThemeButton from "../components/button/ThemeButton";
+import SearchInput from "../components/layout/SearchInput";
 
 export function AppLayout() {
-
-    const location = useLocation();
-
     return (
-        <div className="flex w-ful h-screen">
-            <aside className="flex-1 flex flex-col border-r border-white/5">
-                <div className="w-full p-4 border-b border-white/5">
-
-                    {/* LOGO */}
-                    <div className="h-full flex-1 flex gap-2.5 items-center ">
-                            <div className="size-8 flex items-center justify-center rounded-lg bg-orange-500">
-                                <ArrowDownToLine stroke-width={3} color="white" height={16} width={16}/>
-                            </div>
-                        <div className="flex flex-col leading-none gap-1">
-                            <span className="text-[15px] font-bold tracking-[-0.08px] text-white text-left">DevPack</span>
-                            <span className="text-[10px] tracking-[-0.12px] text-left">ENV MANAGER</span>
-                        </div>
-                    </div>
+        <div className="flex h-screen">
+            <aside className="w-48 flex flex-col border-r border-app-border">
+                <div className="p-4 border-b border-app-border">
+                    <Logo />
                 </div>
-                 
-                <nav className="p-2.5 flex flex-1 flex-col gap-1">
-                     <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='Overview' icon={LayoutGrid}/>
-                    </NavLink>                                
 
-                    <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='Packages' icon={Box}/>
-                    </NavLink>    
+                <SidebarNavigation />
 
-                                        <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='Categories' icon={Layers}/>
-                    </NavLink> 
+                <div className="flex flex-col gap-2 border-t border-white/10 p-2.5">
+                    <NavLink to="/">
+                        <LinkButton name="Settings" icon={Settings} />
+                    </NavLink>
 
-                                        <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='My Setup' icon={List
-                            
-                        }/>
-                    </NavLink> 
-
-                                        <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='History' icon={History}/>
-                    </NavLink> 
-                </nav>
-
-                <div className="border-t border-white/10 p-2.5 flex flex-col gap-2">
-                    <NavLink 
-                        to={'/'}
-                        className=""
-                    >
-                        <LinkButton name='Settings' icon={Settings}/>
-                    </NavLink>  
-
-                    <div>
-                        <div className="h-full flex-1 flex gap-2.5 items-center ">
-                            <div className="size-8 flex items-center justify-center rounded-full bg-gray-500">
-                                <User stroke-width={3} color="white" height={16} width={16}/>
-                            </div>
-                            <div className="flex flex-col leading-none gap-1">
-                                <span className="text-[15px] font-bold tracking-[-0.08px] text-white text-left">Ubuntu</span>
-                                <span className="text-[10px] tracking-[-0.12px] text-left">@localhost</span>
-                            </div>
-                        </div>
-                    </div>
+                    <UserProfile />
                 </div>
             </aside>
 
-            <aside className="flex-3 flex flex-col">
-                <div className="w-full h-12 border-b border-white/10 flex items-center">
-                    <h2>
-                        {location.pathname}
-                    </h2>
-                    
-                    <div className="flex items-center absolute">
-                        <Search width={14} className="relative -right-6"/>
-                        <input type="text" className="border h-9 w-full border-white/10 rounded-md pl-8 px-2.5 py-1.5 outline-none text-sm" placeholder="Search packages..."/>
-                    </div>
-                </div>
+            <div className="flex flex-1 flex-col">
+                <header className="h-12 border-b border-app-border flex items-center px-4">
+                    <SearchInput />
+                    <ThemeButton />
+                </header>
 
-                <main>
+                <main className="flex-1">
                     <Outlet />
                 </main>
-            </aside>
-
+            </div>
         </div>
-    )
+    );
 }

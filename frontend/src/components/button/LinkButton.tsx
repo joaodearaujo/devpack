@@ -21,7 +21,7 @@ export function LinkButton({name, icon: Icon}: {name: string, icon: LucideIcon})
             className={cn(
                 "flex w-full items-center gap-2.5 rounded-md border border-transparent p-2 text-sm cursor-pointer transition-colors duration-300",
                 isSelected
-                    ? "border border-orange-500/50 bg-orange-500/5 text-orange-500"
+                    ? "border border-primary-border bg-primary-bg text-primary"
                     : "font-normal text-white/50 hover:text-white/70"
             )}
         >
@@ -32,7 +32,7 @@ export function LinkButton({name, icon: Icon}: {name: string, icon: LucideIcon})
                 className={cn(
                     "transition-colors duration-300",
                     isSelected
-                        ? "text-orange-500"
+                        ? "text-primary"
                         : "text-white/50 group-hover:text-white"
                 )}
             />

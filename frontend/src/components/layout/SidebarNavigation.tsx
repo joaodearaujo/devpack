@@ -3,7 +3,7 @@ import { LinkButton } from "../button/LinkButton";
 import { Box, Layers, LayoutGrid, List, History } from "lucide-react";
 
 const navigationItems = [
-    { name: "Overview", icon: LayoutGrid, to: "/" },
+    { name: "Overview", icon: LayoutGrid, to: "/overview" },
     { name: "Packages", icon: Box, to: "/packages" },
     { name: "Categories", icon: Layers, to: "/categories" },
     { name: "My Setup", icon: List, to: "/setup" },
