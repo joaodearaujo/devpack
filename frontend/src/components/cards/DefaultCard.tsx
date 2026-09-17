@@ -11,7 +11,7 @@ export default function DefaultCard({
     return (
         <div
             className={cn(
-                'border border-app-border-strong rounded-lg p-5 bg-card-bg',
+                'border-app-border-strong bg-card-bg rounded-lg border p-5',
                 className,
             )}
         >

@@ -19,16 +19,13 @@ export function LinkButton({
                     'flex w-full items-center gap-2.5 rounded-md border p-2 text-sm',
                     isActive
                         ? 'border-primary-border bg-primary-bg text-primary'
-                        : 'border-transparent text-app-text-muted'
+                        : 'text-app-text-muted border-transparent',
                 )
             }
         >
             {({ isActive }) => (
                 <>
-                    <Icon
-                        size={15}
-                        strokeWidth={isActive ? 2 : 1}
-                    />
+                    <Icon size={15} strokeWidth={isActive ? 2 : 1} />
                     {name}
                 </>
             )}

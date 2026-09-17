@@ -11,7 +11,7 @@ const navigationItems = [
 
 export default function SidebarNavigation() {
     return (
-        <nav className="p-2.5 flex flex-1 flex-col gap-1">
+        <nav className="flex flex-1 flex-col gap-1 p-2.5">
             {navigationItems.map((item) => (
                 <LinkButton
                     key={item.to}

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { AppLayout } from '../../layouts/AppLayout'
 import OverView from '../../features/overview/pages'
+import { Packages } from '../../features/packages/pages'
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +10,10 @@ export const router = createBrowserRouter([
             {
                 path: '/overview',
                 element: <OverView />,
+            },
+            {
+                path: '/packages',
+                element: <Packages />,
             },
         ],
     },

@@ -2,8 +2,8 @@ import { ArrowDownToLine } from 'lucide-react'
 
 export default function Logo() {
     return (
-        <div className="flex gap-2.5 items-center">
-            <div className="size-8 flex items-center justify-center rounded-lg bg-primary">
+        <div className="flex items-center gap-2.5">
+            <div className="bg-primary flex size-8 items-center justify-center rounded-lg">
                 <ArrowDownToLine
                     stroke-width={3}
                     color="white"
@@ -12,11 +12,11 @@ export default function Logo() {
                 />
             </div>
             <div className="flex flex-col gap-1 leading-none">
-                <span className="text-brand text-left font-bold tracking-[-0.08px] text-app-white">
+                <span className="text-brand text-app-white text-left font-bold tracking-[-0.08px]">
                     DevPack
                 </span>
 
-                <span className="text-label text-left tracking-[-0.12px] text-app-text-subtle">
+                <span className="text-label text-app-text-subtle text-left tracking-[-0.12px]">
                     ENV MANAGER
                 </span>
             </div>
