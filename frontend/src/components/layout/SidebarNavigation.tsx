@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { LinkButton } from '../button/LinkButton'
 import { Box, Layers, LayoutGrid, List, History } from 'lucide-react'
 
@@ -14,9 +13,12 @@ export default function SidebarNavigation() {
     return (
         <nav className="p-2.5 flex flex-1 flex-col gap-1">
             {navigationItems.map((item) => (
-                <NavLink to={item.to} key={`${item.name}`}>
-                    <LinkButton name={item.name} icon={item.icon} />
-                </NavLink>
+                <LinkButton
+                    key={item.to}
+                    name={item.name}
+                    icon={item.icon}
+                    to={item.to}
+                />
             ))}
         </nav>
     )

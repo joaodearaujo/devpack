@@ -11,11 +11,12 @@ export default function Logo() {
                     width={16}
                 />
             </div>
-            <div className="flex flex-col leading-none gap-1">
-                <span className="text-[15px] font-bold tracking-[-0.08px] text-app-text-app-white text-left">
+            <div className="flex flex-col gap-1 leading-none">
+                <span className="text-brand text-left font-bold tracking-[-0.08px] text-app-white">
                     DevPack
                 </span>
-                <span className="text-[10px] tracking-[-0.12px] text-left text-app-text-subtle">
+
+                <span className="text-label text-left tracking-[-0.12px] text-app-text-subtle">
                     ENV MANAGER
                 </span>
             </div>

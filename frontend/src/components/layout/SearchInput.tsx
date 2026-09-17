@@ -10,7 +10,7 @@ export default function SearchInput() {
             />
             <input
                 type="text"
-                className="border h-8 w-80 border-app-border-strong rounded-md pl-8 pr-2.5 py-1.5 outline-none text-sm"
+                className="h-8 w-80 rounded-md border focus:border-primary border-app-border-strong px-2.5 py-1.5 pl-8 text-sm outline-none"
                 placeholder="Search packages..."
             />
         </div>

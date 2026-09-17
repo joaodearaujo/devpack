@@ -1,5 +1,5 @@
 import { Settings } from 'lucide-react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import { LinkButton } from '../components/button/LinkButton'
 import Logo from '../components/layout/Logo'
@@ -17,11 +17,10 @@ export function AppLayout() {
                 </div>
                 <SidebarNavigation />{' '}
                 <div className="flex flex-col gap-2 border-t border-white/10 p-2.5">
-                    {' '}
-                    <NavLink to="/">
-                        {' '}
-                        <LinkButton name="Settings" icon={Settings} />
-                    </NavLink>
+                    <LinkButton 
+                        to="/"
+                        name="Settings" 
+                        icon={Settings} />
                     <UserProfile />
                 </div>
             </aside>
