@@ -1,12 +1,12 @@
-import { Settings } from "lucide-react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Settings } from 'lucide-react'
+import { NavLink, Outlet } from 'react-router-dom'
 
-import { LinkButton } from "../components/button/LinkButton";
-import Logo from "../components/layout/Logo";
-import SidebarNavigation from "../components/layout/SidebarNavigation";
-import UserProfile from "../components/layout/UserProfile";
-import ThemeButton from "../components/button/ThemeButton";
-import SearchInput from "../components/layout/SearchInput";
+import { LinkButton } from '../components/button/LinkButton'
+import Logo from '../components/layout/Logo'
+import SidebarNavigation from '../components/layout/SidebarNavigation'
+import UserProfile from '../components/layout/UserProfile'
+import ThemeButton from '../components/button/ThemeButton'
+import SearchInput from '../components/layout/SearchInput'
 
 export function AppLayout() {
     return (
@@ -15,14 +15,13 @@ export function AppLayout() {
                 <div className="p-4 border-b border-app-border">
                     <Logo />
                 </div>
-
-                <SidebarNavigation />
-
+                <SidebarNavigation />{' '}
                 <div className="flex flex-col gap-2 border-t border-white/10 p-2.5">
+                    {' '}
                     <NavLink to="/">
+                        {' '}
                         <LinkButton name="Settings" icon={Settings} />
                     </NavLink>
-
                     <UserProfile />
                 </div>
             </aside>
@@ -38,5 +37,5 @@ export function AppLayout() {
                 </main>
             </div>
         </div>
-    );
+    )
 }

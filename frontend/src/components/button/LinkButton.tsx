@@ -1,28 +1,33 @@
-import { type LucideIcon } from "lucide-react"
-import { cn } from "../../lib/utils";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { type LucideIcon } from 'lucide-react'
+import { cn } from '../../lib/utils'
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
-export function LinkButton({name, icon: Icon}: {name: string, icon: LucideIcon}) {
-   
-    const [ isSelected, setIsSelected ] = useState(false);
-    const location = useLocation();
+export function LinkButton({
+    name,
+    icon: Icon,
+}: {
+    name: string
+    icon: LucideIcon
+}) {
+    const [isSelected, setIsSelected] = useState(false)
+    const location = useLocation()
 
     const handleSelection = () => {
-        if(location.search){
-            return;
+        if (location.search) {
+            return
         }
-        setIsSelected(true);
+        setIsSelected(true)
     }
 
     return (
         <button
             onClick={handleSelection}
             className={cn(
-                "flex w-full items-center gap-2.5 rounded-md border border-transparent p-2 text-sm cursor-pointer transition-colors duration-300",
+                'flex w-full items-center gap-2.5 rounded-md border border-transparent p-2 text-sm cursor-pointer transition-colors duration-300',
                 isSelected
-                    ? "border border-primary-border bg-primary-bg text-primary"
-                    : "font-normal text-white/50 hover:text-white/70"
+                    ? 'border border-primary-border bg-primary-bg text-primary'
+                    : 'font-normal text-white/50 hover:text-white/70',
             )}
         >
             <Icon
@@ -30,10 +35,10 @@ export function LinkButton({name, icon: Icon}: {name: string, icon: LucideIcon})
                 height={15}
                 strokeWidth={isSelected ? 2 : 1}
                 className={cn(
-                    "transition-colors duration-300",
+                    'transition-colors duration-300',
                     isSelected
-                        ? "text-primary"
-                        : "text-white/50 group-hover:text-white"
+                        ? 'text-primary'
+                        : 'text-white/50 group-hover:text-white',
                 )}
             />
             {name}
