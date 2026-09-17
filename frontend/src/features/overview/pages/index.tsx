@@ -9,7 +9,7 @@ import { Box } from 'lucide-react'
 
 export default function OverView() {
     return (
-        <div className="h-full flex flex-col p-8 gap-4">
+        <div className="h-full flex flex-col px-8 py-10 gap-8 max-w-240">
             <header>
                 <h1 className="mb-3 text-3xl font-bold">Welcome to DevPack</h1>
 
@@ -38,7 +38,7 @@ export default function OverView() {
 
             <section>
                 <DefaultCard className="flex flex-col gap-4">
-                    <h2>Quick Start</h2>
+                    <h2 className='font-semibold'>Quick Start</h2>
 
                     <ol>
                         {quickStartSteps.map((step) => (
@@ -55,22 +55,31 @@ export default function OverView() {
                     </ol>
 
                     <NavLink to="/packages">
-                        <button className="flex gap-2 items-center px-3 py-2 bg-primary rounded-lg text-sm font-semibold">
-                            <Box width={15} height={15} />
+                        <button className="flex gap-2 items-center px-3 py-2 bg-primary rounded-lg text-sm font-semibold cursor-pointer">
+                            <Box width={15} height={15} strokeWidth={3}/>
                             Browse Packages
                         </button>
                     </NavLink>
                 </DefaultCard>
             </section>
 
-            <section aria-lavel="Popular Packages">
-                <h2>Popular Packages</h2>
+            <section aria-label="Popular Packages">
+                <DefaultCard>
+                    <h2 className='font-semibold mb-4'>Popular Packages</h2>
 
-                <ul>
-                    {popularPackages.map((pkg) => (
-                        <li key={pkg.name}>{pkg.name}</li>
-                    ))}
-                </ul>
+                    <ul className="flex max-w-180 gap-x-4 gap-y-2 flex-wrap">
+                        {popularPackages.map((pkg) => (
+                            <li key={pkg.name}>
+                                <DefaultCard className="flex items-center gap-2 px-2 py-1">
+                                    <span className="size-2 rounded-full bg-primary/70" />
+                                    <span className="text-nowrap tracking-tight text-sm text-app-text-muted">
+                                        {pkg.name}
+                                    </span>
+                                </DefaultCard>
+                            </li>
+                        ))}
+                    </ul>
+                </DefaultCard>
             </section>
         </div>
     )
