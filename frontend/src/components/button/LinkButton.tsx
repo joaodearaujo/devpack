@@ -1,47 +1,37 @@
 import { type LucideIcon } from 'lucide-react'
 import { cn } from '../../lib/utils'
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export function LinkButton({
     name,
     icon: Icon,
+    to,
 }: {
     name: string
     icon: LucideIcon
+    to: string
 }) {
-    const [isSelected, setIsSelected] = useState(false)
-    const location = useLocation()
-
-    const handleSelection = () => {
-        if (location.search) {
-            return
-        }
-        setIsSelected(true)
-    }
-
     return (
-        <button
-            onClick={handleSelection}
-            className={cn(
-                'flex w-full items-center gap-2.5 rounded-md border border-transparent p-2 text-sm cursor-pointer transition-colors duration-300',
-                isSelected
-                    ? 'border border-primary-border bg-primary-bg text-primary'
-                    : 'font-normal text-white/50 hover:text-white/70',
-            )}
+        <NavLink
+            to={to}
+            className={({ isActive }) =>
+                cn(
+                    'flex w-full items-center gap-2.5 rounded-md border p-2 text-sm',
+                    isActive
+                        ? 'border-primary-border bg-primary-bg text-primary'
+                        : 'border-transparent text-app-text-muted'
+                )
+            }
         >
-            <Icon
-                width={15}
-                height={15}
-                strokeWidth={isSelected ? 2 : 1}
-                className={cn(
-                    'transition-colors duration-300',
-                    isSelected
-                        ? 'text-primary'
-                        : 'text-white/50 group-hover:text-white',
-                )}
-            />
-            {name}
-        </button>
+            {({ isActive }) => (
+                <>
+                    <Icon
+                        size={15}
+                        strokeWidth={isActive ? 2 : 1}
+                    />
+                    {name}
+                </>
+            )}
+        </NavLink>
     )
 }
