@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
+import { PackagesProvider } from './PackagesProvider'
 
 export function AppProviders({ children }: { children: ReactNode }) {
-    return <>{children}</>
+    return <PackagesProvider>{children}</PackagesProvider>
 }

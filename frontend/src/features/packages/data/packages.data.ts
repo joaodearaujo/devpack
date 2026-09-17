@@ -1,16 +1,8 @@
-export const categories = [
-    { name: 'All', count: 36 },
-    { name: 'Languages', count: 8 },
-    { name: 'Editors', count: 4 },
-    { name: 'Version Control', count: 4 },
-    { name: 'Containers', count: 4 },
-    { name: 'CLI Tools', count: 8 },
-    { name: 'Databases', count: 5 },
-    { name: 'Build Tools', count: 3 },
-]
+import type { Package, PackageCategory } from '../types/package.types'
 
-export const packages = [
+export const packages: Package[] = [
     {
+        id: 'python-3',
         name: 'Python 3',
         version: '3.12.3',
         description: 'General-purpose programming language with rich ecosystem',
@@ -19,6 +11,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'node-js',
         name: 'Node.js',
         version: '20.x LTS',
         description: "JavaScript runtime built on Chrome's V8 engine",
@@ -27,6 +20,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'go',
         name: 'Go',
         version: '1.22.0',
         description: 'Fast, statically typed language designed at Google',
@@ -35,6 +29,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'rust',
         name: 'Rust',
         version: '1.76.0',
         description: 'Memory-safe systems programming language',
@@ -43,6 +38,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'ruby',
         name: 'Ruby',
         version: '3.3.0',
         description: 'Dynamic, expressive scripting language',
@@ -51,6 +47,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'php-8-3',
         name: 'PHP 8.3',
         version: '8.3',
         description: 'Server-side scripting language for web development',
@@ -59,6 +56,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'openjdk-21',
         name: 'OpenJDK 21',
         version: '21 LTS',
         description: 'Open-source implementation of Java',
@@ -67,6 +65,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'net-sdk',
         name: '.NET SDK',
         version: '8.0',
         description: 'Cross-platform .NET development environment',
@@ -75,6 +74,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'vs-code',
         name: 'VS Code',
         version: 'latest',
         description: 'Lightweight, extensible code editor by Microsoft',
@@ -83,6 +83,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'neovim',
         name: 'Neovim',
         version: '0.9.5',
         description: 'Hyperextensible Vim-based text editor',
@@ -91,6 +92,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'jetbrains-toolbox',
         name: 'JetBrains Toolbox',
         version: '2.2.3',
         description: 'Manage all JetBrains IDEs from one place',
@@ -99,6 +101,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'sublime-text',
         name: 'Sublime Text',
         version: '4',
         description: 'Sophisticated text editor for code, markup and prose',
@@ -107,6 +110,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'git',
         name: 'Git',
         version: '2.43.0',
         description: 'Distributed version control system',
@@ -115,6 +119,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'github-cli',
         name: 'GitHub CLI',
         version: '2.45.0',
         description: "GitHub's official command-line tool",
@@ -123,6 +128,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'lazygit',
         name: 'LazyGit',
         version: '0.40.2',
         description: 'Simple terminal UI for git commands',
@@ -131,6 +137,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'git-delta',
         name: 'git-delta',
         version: '0.16.5',
         description: 'Beautiful diff viewer with syntax highlighting',
@@ -139,6 +146,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'docker',
         name: 'Docker',
         version: '25.0',
         description: 'Container platform for building and running applications',
@@ -147,6 +155,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'kubectl',
         name: 'kubectl',
         version: '1.29',
         description: 'Kubernetes command-line tool',
@@ -155,6 +164,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'helm',
         name: 'Helm',
         version: '3.14',
         description: 'Kubernetes package manager',
@@ -163,6 +173,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'podman',
         name: 'Podman',
         version: '4.9.0',
         description: 'Daemonless container engine for OCI containers',
@@ -171,6 +182,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'zsh-oh-my-zsh',
         name: 'Zsh + Oh My Zsh',
         version: '5.9',
         description: 'Extended shell with Oh My Zsh framework',
@@ -179,6 +191,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'tmux',
         name: 'tmux',
         version: '3.4',
         description: 'Terminal multiplexer for persistent sessions',
@@ -187,6 +200,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'ripgrep',
         name: 'ripgrep',
         version: '14.1.0',
         description: 'Recursively search directories for a regex pattern',
@@ -195,6 +209,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'fzf',
         name: 'fzf',
         version: '0.48.1',
         description: 'Command-line fuzzy finder',
@@ -203,6 +218,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'bat',
         name: 'bat',
         version: '0.24.0',
         description: 'cat clone with syntax highlighting and Git integration',
@@ -211,6 +227,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'eza',
         name: 'eza',
         version: '0.18.6',
         description: 'Modern replacement for ls with colors and icons',
@@ -219,6 +236,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'htop',
         name: 'htop',
         version: '3.3.0',
         description: 'Interactive process viewer for Unix systems',
@@ -227,6 +245,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'curl-wget',
         name: 'curl + wget',
         version: '8.6.0',
         description: 'Command-line tools for transferring data',
@@ -235,6 +254,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'postgresql',
         name: 'PostgreSQL',
         version: '16',
         description: 'Advanced open source relational database',
@@ -243,6 +263,7 @@ export const packages = [
         popular: true,
     },
     {
+        id: 'mysql',
         name: 'MySQL',
         version: '8.0',
         description: "World's most popular open source database",
@@ -251,6 +272,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'redis',
         name: 'Redis',
         version: '7.2',
         description: 'In-memory data structure store and cache',
@@ -259,6 +281,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'sqlite',
         name: 'SQLite',
         version: '3.45',
         description: 'Serverless, zero-configuration SQL database engine',
@@ -267,6 +290,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'mongodb',
         name: 'MongoDB',
         version: '7.0',
         description: 'Document-oriented NoSQL database',
@@ -275,6 +299,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'gnu-make',
         name: 'GNU Make',
         version: '4.3',
         description: 'Build automation tool for C/C++ and other projects',
@@ -283,6 +308,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'cmake',
         name: 'CMake',
         version: '3.28',
         description: 'Cross-platform build system generator',
@@ -291,6 +317,7 @@ export const packages = [
         popular: false,
     },
     {
+        id: 'meson-build',
         name: 'Meson Build',
         version: '1.3.2',
         description: 'Fast and user-friendly build system',
@@ -298,4 +325,16 @@ export const packages = [
         category: 'Build Tools',
         popular: false,
     },
+]
+
+
+export const categories: PackageCategory[] = [
+    { name: 'All', count: packages.length },
+    ...Array.from(
+        new Set(packages.map((pkg) => pkg.category)),
+        (name) => ({
+            name,
+            count: packages.filter((pkg) => pkg.category === name).length,
+        }),
+    ),
 ]

@@ -7,9 +7,8 @@ export function Header({
 }) {
     return (
         <header className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold">{title}</h1>
-
-            <p className="text-app-text-muted font-thin">{subtitle}</p>
+            <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+            <p className="max-w-2xl text-sm leading-6 text-app-text-muted">{subtitle}</p>
         </header>
     )
 }
