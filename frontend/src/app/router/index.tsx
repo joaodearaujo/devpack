@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
-import { AppLayout } from "../../layouts/AppLayout";
-import OverView from "../../features/overview/pages";
+import { createBrowserRouter } from 'react-router-dom'
+import { AppLayout } from '../../layouts/AppLayout'
+import OverView from '../../features/overview/pages'
 
 export const router = createBrowserRouter([
     {
@@ -8,8 +8,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/overview',
-                element: <OverView />
-            }
-        ]
-    }
-]);
+                element: <OverView />,
+            },
+        ],
+    },
+])
