@@ -1,10 +1,7 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 import { AppLayout } from '../../layouts/AppLayout'
-import OverView from '../../features/overview/pages'
-import { Packages } from '../../features/packages/pages'
-import NotFound from '../pages/NotFound'
-import ComingSoon from '../pages/ComingSoon'
 import ErrorPage from '../pages/ErrorPage'
+import NotFound from '../pages/NotFound'
 
 export const router = createBrowserRouter([
     {
@@ -13,12 +10,30 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             { index: true, element: <Navigate to="/overview" replace /> },
-            { path: 'overview', element: <OverView /> },
-            { path: 'packages', element: <Packages /> },
-            { path: 'categories', element: <ComingSoon /> },
-            { path: 'setup', element: <ComingSoon /> },
-            { path: 'history', element: <ComingSoon /> },
-            { path: 'settings', element: <ComingSoon /> },
+            {
+                path: 'overview',
+                lazy: async () => ({ Component: (await import('../../features/overview/pages')).default }),
+            },
+            {
+                path: 'packages',
+                lazy: async () => ({ Component: (await import('../../features/packages/pages')).default }),
+            },
+            {
+                path: 'categories',
+                lazy: async () => ({ Component: (await import('../pages/Categories')).default }),
+            },
+            {
+                path: 'setup',
+                lazy: async () => ({ Component: (await import('../pages/Setup')).default }),
+            },
+            {
+                path: 'history',
+                lazy: async () => ({ Component: (await import('../pages/History')).default }),
+            },
+            {
+                path: 'settings',
+                lazy: async () => ({ Component: (await import('../pages/Settings')).default }),
+            },
             { path: '*', element: <NotFound /> },
         ],
     },
