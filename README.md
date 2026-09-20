@@ -44,10 +44,8 @@ The project is also a practical exploration of building a complete application w
 
 ## Preview
 
-> Add your application screenshot to `docs/preview.png`.
-
 <div align="center">
-  <img src="./docs/preview.png" alt="DevPack preview" width="900" />
+<img width="1910" height="1012" alt="preview" src="https://github.com/user-attachments/assets/2bbf38c3-3afc-4b98-980a-9ebd8bef1d29" />
 </div>
 
 
