@@ -8,11 +8,7 @@ interface CategoryFilterProps {
 
 export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
     return (
-        <div
-            className="flex flex-wrap gap-2"
-            role="group"
-            aria-label="Filter packages by category"
-        >
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter packages by category">
             {categories.map((category) => {
                 const isActive = value === category.name
 
@@ -30,7 +26,7 @@ export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
                         )}
                     >
                         <span>{category.name}</span>
-                        <span aria-label={`${category.count} packages`}>
+                        <span className="rounded-full bg-black/10 px-1.5 py-0.5 text-[10px]" aria-label={`${category.count} packages`}>
                             {category.count}
                         </span>
                     </button>

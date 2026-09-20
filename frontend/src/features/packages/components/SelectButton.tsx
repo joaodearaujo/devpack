@@ -6,15 +6,11 @@ export default function SelectButton({ isChecked }: { isChecked: boolean }) {
         <span
             aria-hidden="true"
             className={cn(
-                'flex size-5 shrink-0 items-center justify-center rounded-sm border-2 border-app-border-strong transition-colors',
-                isChecked ? 'bg-primary' : 'bg-app-bg',
+                'flex size-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors',
+                isChecked ? 'border-primary bg-primary text-white' : 'border-app-border-strong bg-app-bg',
             )}
         >
-            <Check
-                size={12}
-                strokeWidth={3}
-                className={cn(isChecked ? 'opacity-100' : 'opacity-0')}
-            />
+            <Check size={12} strokeWidth={3} className={cn(isChecked ? 'opacity-100' : 'opacity-0')} />
         </span>
     )
 }
