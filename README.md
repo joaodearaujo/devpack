@@ -1,131 +1,193 @@
+<div align="center">
+
+
+<img width="96" height="96" alt="favicon" src="https://github.com/user-attachments/assets/2d2f029d-389a-4f16-8bfa-8460e33a1d8b" />
+
 # DevPack
 
-DevPack is a local-first Linux environment builder. It lets users discover a curated package catalog, build an installation script from explicit selections, keep a local setup history, and ask a domain-restricted AI assistant for Linux and DevPack guidance.
+### Install and manage Ubuntu packages with a modern interface.
 
-The project is intentionally designed as a portfolio piece: the UI is only one layer. The codebase demonstrates feature-oriented organization, pure domain functions, persistent client state, URL-driven filters, accessibility, route-level code splitting, backend validation, security middleware, rate limiting, environment-based configuration, automated tests, and a backend boundary around the OpenAI API.
+A simple package management experience designed to make discovering and installing software on Ubuntu faster and easier.
+
+<br />
+
+[![Platform](https://img.shields.io/badge/Platform-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)](#)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=111827)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](#)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](#)
+
+<br />
+
+[Features](#features) · [Installation](#installation) · [Development](#development) · [Roadmap](#roadmap)
+
+</div>
+
+---
+
+## Overview
+
+DevPack is a package installation tool created for Ubuntu users who want a simpler way to discover and install software.
+
+Instead of relying entirely on terminal commands and manually searching for packages, DevPack provides a centralized interface for exploring available packages and quickly finding what you need.
+
+The project is also a practical exploration of building a complete application with React, TypeScript, Vite, Linux and package-management workflows.
 
 ## Features
 
-- Searchable package catalog with category and sort filters.
-- Shareable package filters through URL query parameters.
-- Explicit package selection with persistent local storage.
-- Generated Bash installation script grouped by package manager.
-- Warnings for recipes that are not configured for automatic installation.
-- Setup page for reviewing the current environment.
-- Local installation history with copyable scripts.
-- Functional dark, light, and system theme modes.
-- Accessible command palette (`Ctrl+K` / `Cmd+K`).
-- Accessible floating AI assistant.
-- Server-side Linux/DevPack domain guard before calling the model.
-- OpenAI Responses API integration with the API key kept on the backend.
-- Helmet security headers, CORS allow-listing, body limits, and rate limiting.
-- Health endpoint for operational checks.
-- Unit tests for important domain behavior.
+- **Package discovery** — Browse available software in one place.
+- **Search** — Quickly find packages without manually navigating through lists.
+- **Command Palette** — Navigate and search through the application using a keyboard-first interface.
+- **Package pages** — Give each package its own place for relevant information and actions.
+- **Theme support** — Switch between light and dark interfaces.
+- **Error pages** — Dedicated states for missing pages and unavailable content.
+- **Responsive UI** — Designed to remain usable across different screen sizes.
 
-## Architecture
+## Preview
 
-```text
-Browser
-  │
-  ├── React + TypeScript
-  │     ├── App shell / routing
-  │     ├── Feature modules
-  │     ├── Local state providers
-  │     └── Pure domain functions
-  │
-  └── HTTP
-        │
-        ▼
-    Express API
-        │
-        ├── Validation
-        ├── Domain guard
-        ├── Service layer
-        ├── Security middleware
-        └── OpenAI Responses API
-```
+> Add your application screenshot to `docs/preview.png`.
 
-The frontend never receives the OpenAI API key. Requests go through the backend so credentials and policy checks remain server-side.
+<div align="center">
+  <img src="./docs/preview.png" alt="DevPack preview" width="900" />
+</div>
 
-## Project structure
+
+## Tech Stack
+
+| Technology   | Purpose                              |
+| ------------ | ------------------------------------ |
+| React        | User interface                       |
+| TypeScript   | Type-safe application development    |
+| Vite         | Development server and build tooling |
+| React Router | Client-side routing                  |
+| Lucide React | Interface icons                      |
+| Ubuntu       | Target operating system              |
+
+## Project Structure
 
 ```text
 devpack/
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── data/
-│   │   ├── domain/chat/
-│   │   ├── middleware/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── app.ts
-│   │   └── server.ts
-│   └── tests/
 ├── docs/
+│   ├── preview.png
+│   └── product.md
+│
 ├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── app/
-│       ├── components/
-│       ├── features/
-│       └── lib/
-└── package.json
+│   ├── src/
+│   │   ├── app/
+│   │   │   └── router/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   └── styles/
+│   │
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── favicon.svg
+└── README.md
 ```
 
-## Local development
+## Installation
 
-Requirements: Node.js 22+.
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/devpack.git
+cd devpack
+```
+
+Enter the frontend:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
 
 ```bash
 npm install
-cp backend/.env.example backend/.env
 ```
 
-Set the OpenAI key in `backend/.env`. Then run the two applications in separate terminals:
+Start the development server:
 
 ```bash
-npm run dev:backend
-npm run dev:frontend
+npm run dev
 ```
 
-The frontend uses `http://localhost:5173` by default and the backend uses `http://localhost:3001`.
+Vite will provide the local development URL in the terminal.
 
-## Configuration
+## Development
 
-Frontend:
-
-```text
-VITE_API_URL=http://localhost:3001
-```
-
-Backend:
-
-```text
-PORT=3001
-FRONTEND_ORIGIN=http://localhost:5173
-OPENAI_API_KEY=your_key
-OPENAI_MODEL=gpt-5.6-luna
-```
-
-Never commit `.env` files.
-
-## Quality checks
+Run the linter:
 
 ```bash
-npm run check
 npm run lint
-npm run test
+```
+
+Build the application:
+
+```bash
 npm run build
 ```
 
-## Product decisions
+Preview the production build:
 
-DevPack does not execute generated commands automatically. The user reviews the generated script and explicitly copies it. Package recipes are data, not hard-coded inside UI components, so the catalog can later move behind an API or database without changing the rendering layer.
-
-The AI assistant is intentionally restricted to Linux, Ubuntu, shell/package-management topics, and DevPack itself. The server applies a deterministic domain check before making an AI request and the model receives a second, explicit domain instruction as defense in depth.
+```bash
+npm run preview
+```
 
 ## Roadmap
 
-The next architectural step would be to move package recipes to a versioned server-side catalog, add package-manager abstractions for more distributions, and introduce integration tests for the HTTP API.
+- [x] Package browsing
+- [x] Package search
+- [x] Command palette
+- [x] Theme support
+- [x] Error pages
+- [ ] Package installation
+- [ ] Installation progress
+- [ ] Package details
+- [ ] Package categories
+- [ ] Installation history
+- [ ] Package updates
+- [ ] User-defined packages
+
+## Design Goals
+
+DevPack is being built around a few simple principles:
+
+**Simple**  
+The user should be able to find what they need without unnecessary steps.
+
+**Fast**  
+Common actions should be easy to access, including through keyboard navigation.
+
+**Clear**  
+The interface should communicate package information and application state clearly.
+
+**Maintainable**  
+The codebase should remain modular and easy to extend as the project grows.
+
+## Contributing
+
+Contributions are welcome.
+
+If you find a bug, have a feature request, or want to improve the project, open an issue or submit a pull request.
+
+Before submitting a pull request, make sure the project builds successfully and the linter passes.
+
+## License
+
+This project is currently under development.
+
+<div align="center">
+
+
+<br />
+
+
+</div><img width="40" height="40" alt="favicon" src="https://github.com/user-attachments/assets/2d2f029d-389a-4f16-8bfa-8460e33a1d8b" />
+
+**DevPack**
+
+*Making Ubuntu package management simpler.*
+
