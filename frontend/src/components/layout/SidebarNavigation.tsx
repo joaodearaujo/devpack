@@ -1,5 +1,5 @@
+import { Box, History, Layers, LayoutGrid, List } from 'lucide-react'
 import { LinkButton } from '../button/LinkButton'
-import { Box, Layers, LayoutGrid, List, History } from 'lucide-react'
 
 const navigationItems = [
     { name: 'Overview', icon: LayoutGrid, to: '/overview' },
@@ -11,14 +11,9 @@ const navigationItems = [
 
 export default function SidebarNavigation() {
     return (
-        <nav className="flex flex-1 flex-col gap-1 p-2.5">
+        <nav aria-label="Primary navigation" className="flex flex-1 flex-col gap-1 p-2.5">
             {navigationItems.map((item) => (
-                <LinkButton
-                    key={item.to}
-                    name={item.name}
-                    icon={item.icon}
-                    to={item.to}
-                />
+                <LinkButton key={item.to} name={item.name} icon={item.icon} to={item.to} />
             ))}
         </nav>
     )

@@ -1,19 +1,15 @@
-import { User } from 'lucide-react'
+import { Monitor } from 'lucide-react'
 
 export default function UserProfile() {
     return (
-        <div className="flex items-center justify-center gap-2.5 md:justify-start">
-            <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-gray-500">
-                <User aria-hidden="true" strokeWidth={3} color="white" size={15} />
-            </div>
-            <div className="hidden flex-col gap-1 leading-none md:flex">
-                <span className="text-left text-brand font-bold text-app-text-subtle">
-                    Ubuntu
-                </span>
-                <span className="text-left text-label text-app-text-muted">
-                    @localhost
-                </span>
-            </div>
+        <div className="flex items-center justify-center gap-2.5 md:justify-start" title="Local browser workspace">
+            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-app-bg-surface text-app-text-muted">
+                <Monitor aria-hidden="true" size={15} />
+            </span>
+            <span className="hidden flex-col gap-1 leading-none md:flex">
+                <span className="text-left text-[13px] font-semibold text-app-text-subtle">Local workspace</span>
+                <span className="text-left text-[10px] text-app-text-muted">browser-only state</span>
+            </span>
         </div>
     )
 }

@@ -1,20 +1,9 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 import { cn } from '../../lib/utils'
 
-export default function DefaultCard({
-    children,
-    className,
-}: {
-    children: ReactNode
-    className?: string
-}) {
+export default function DefaultCard({ children, className, ...props }: HTMLAttributes<HTMLDivElement> & { children: ReactNode }) {
     return (
-        <div
-            className={cn(
-                'rounded-lg border border-app-border-strong bg-card-bg p-5',
-                className,
-            )}
-        >
+        <div className={cn('rounded-xl border border-app-border-strong bg-card-bg p-5', className)} {...props}>
             {children}
         </div>
     )
