@@ -1,30 +1,48 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-primary: rgb(232 85 37);
-    --color-primary-bg: rgb(41 26 23);
-    --color-primary-border: rgb(249 115 22 / 0.5);
+    --color-primary: var(--dev-primary);
+    --color-primary-bg: var(--dev-primary-bg);
+    --color-primary-border: var(--dev-primary-border);
+    --color-card-bg: var(--dev-card-bg);
+    --color-terminal-bg: var(--dev-terminal-bg);
+    --color-app-bg: var(--dev-app-bg);
+    --color-app-bg-surface: var(--dev-app-bg-surface);
+    --color-app-white: var(--dev-app-white);
+    --color-app-border: var(--dev-border);
+    --color-app-border-strong: var(--dev-border-strong);
+    --color-app-text-muted: var(--dev-text-muted);
+    --color-app-text-subtle: var(--dev-text-subtle);
+}
 
-    --color-card-bg: rgb(29 29 32);
-    --color-terminal-bg: rgb(19 19 21);
+:root {
+    --dev-primary: rgb(232 85 37);
+    --dev-primary-bg: rgb(61 31 24);
+    --dev-primary-border: rgb(249 115 22 / 0.5);
+    --dev-card-bg: rgb(29 29 32);
+    --dev-terminal-bg: rgb(17 17 19);
+    --dev-app-bg: rgb(22 22 23);
+    --dev-app-bg-surface: rgb(35 35 39);
+    --dev-app-white: rgb(250 250 250);
+    --dev-border: rgb(255 255 255 / 0.05);
+    --dev-border-strong: rgb(255 255 255 / 0.1);
+    --dev-text-muted: rgb(167 164 164 / 0.8);
+    --dev-text-subtle: rgb(238 236 236 / 0.85);
+}
 
-    --color-app-bg: rgb(22 22 23);
-    --color-app-bg-surface: rgb(35 35 39);
-    --color-app-white: #ffffff;
-
-    --color-app-border: rgb(255 255 255 / 0.05);
-    --color-app-border-strong: rgb(255 255 255 / 0.1);
-
-    --color-app-text-muted: rgb(154 152 152 / 0.75);
-    --color-app-text-subtle: rgb(255 255 255 / 0.7);
-
-    --text-page-title: 1.875rem;
-    --text-section-title: 1.125rem;
-    --text-card-title: 0.875rem;
-    --text-body: 0.875rem;
-    --text-caption: 0.75rem;
-    --text-brand: 0.9375rem;
-    --text-label: 0.625rem;
+:root[data-theme='light'] {
+    --dev-primary: rgb(199 64 19);
+    --dev-primary-bg: rgb(255 236 229);
+    --dev-primary-border: rgb(199 64 19 / 0.3);
+    --dev-card-bg: rgb(255 255 255);
+    --dev-terminal-bg: rgb(247 247 248);
+    --dev-app-bg: rgb(245 245 246);
+    --dev-app-bg-surface: rgb(255 255 255);
+    --dev-app-white: rgb(28 28 30);
+    --dev-border: rgb(0 0 0 / 0.06);
+    --dev-border-strong: rgb(0 0 0 / 0.12);
+    --dev-text-muted: rgb(85 85 91 / 0.82);
+    --dev-text-subtle: rgb(58 58 63 / 0.9);
 }
 
 *,
@@ -34,18 +52,24 @@
 }
 
 html {
-    background: var(--color-app-bg);
+    min-width: 320px;
+    background: var(--dev-app-bg);
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    background-color: var(--color-app-bg);
-    color: var(--color-app-white);
-    font-family: var(--font-sans);
+    min-width: 320px;
+    background: var(--dev-app-bg);
+    color: var(--dev-app-white);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-rendering: optimizeLegibility;
 }
 
 button,
-input {
+input,
+select,
+textarea {
     font: inherit;
 }
 
@@ -54,6 +78,41 @@ button:disabled {
 }
 
 ::selection {
-    background: var(--color-primary);
+    background: var(--dev-primary);
     color: white;
+}
+
+:focus-visible {
+    outline: 2px solid var(--dev-primary);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    border-radius: 0.5rem;
+    background: var(--dev-card-bg);
+    color: var(--dev-app-white);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
